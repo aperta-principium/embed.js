@@ -3,9 +3,10 @@ Embed just about anything... in the browser
 
 [Demo](https://embed.filiptronicek.now.sh/)
 
-First include the script
+First include the scripts
 ```html
 <script src="https://cdn.jsdelivr.net/gh/filiptronicek/Embed/embed.js"> </script>
+<script src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js"> </script>
 ```
 
 Then just create a div
