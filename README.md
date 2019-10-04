@@ -20,3 +20,9 @@ Embed("https://github.com/filiptronicek.png");
 </script>
 ```
 And you're done!
+
+
+##To-dos:
+* SoundCloud embed
+* PasteBin Embed
+* Streamable embed
