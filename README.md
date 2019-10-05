@@ -3,6 +3,8 @@ Embed just about anything... in the browser
 
 [Demo](https://embed.filiptronicek.now.sh/)
 
+## Setup
+
 First include the scripts
 ```html
 <script src="https://cdn.jsdelivr.net/gh/filiptronicek/Embed/embed.js"> </script>
