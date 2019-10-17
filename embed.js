@@ -94,7 +94,7 @@ function Embed(url) {
   function documentCheck(url) {
     return (
       url.match(
-        /\.(doc|docx|xls|xlsx|ppt|pptx|pdf|pages|eps|ps|ttf|xps)$/i
+        /\.(doc|docx|xls|xlsx|ppt|pptx|pdf|pages|eps|ps|ttf|xps|csv)$/i
       ) != null
     );
   }
