@@ -12,11 +12,11 @@ function Embed(url) {
     });
     return id;
   } //
-  
+
   function valUrl() {
     if (url != undefined || url != "") {
       console.log("The URL: " + url);
-  
+
       var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/i;
       var match = url.match(regExp);
       if (match && match[2].length == 11) {
@@ -26,7 +26,7 @@ function Embed(url) {
         $("#embed").html(
           '<iframe id="yt" width="100%" height="500" frameborder="0"> </iframe>'
         );
-  
+
         $("#yt").attr(
           "src",
           "https://www.youtube.com/embed/" + match[2] + "?autoplay=0&rel=0"
@@ -90,20 +90,15 @@ function Embed(url) {
   function videoCheck(url) {
     return url.match(/\.(mp4|mkv)$/i) != null;
   }
-  
+
   function documentCheck(url) {
     return (
-      url.match(
-        /\.(doc|docx|xls|xlsx|ppt|pptx|pdf|pages|eps|ps|ttf|xps)$/i
-      ) != null
+      url.match(/\.(doc|docx|xls|xlsx|ppt|pptx|pdf|pages|eps|ps|ttf|xps)$/i) !=
+      null
     );
   }
-  function csvCheck(url) {
-    return (
-      url.match(
-        /\.(csv)$/i
-      ) != null
-    );
+  function pasteBinCheck(url) {
+    
   }
   function textCheck(url) {
     return url.match(/\.(txt)$/i) != null;
@@ -114,9 +109,8 @@ function Embed(url) {
   if (videoCheck(url)) {
     console.log("A video");
     $("#embed").html(
-      '<video id="player" width="100%" playsinline controls><source id="videoSource"/></video>'
+      '<video id="player" width="100%" playsinline controls><source src="'+url+'" id="videoSource"/></video>'
     );
-    $("#embedSource").attr("src", url);
   } else {
     $("#player").hide();
   }
@@ -138,21 +132,12 @@ function Embed(url) {
   if (textCheck(url)) {
     $("#embed").load(url);
   }
-  if(csvCheck(url)) {
-    $.get(url, function(data) {
-      var build = '<table border="1" cellpadding="2" cellspacing="0" style="border-collapse: collapse" width="100%">\n';
-      var head = data.split("\n");
-      for(var i=0;i<1;i++){
-      build += "<tr><th>" + head[i] + "</th></tr>";
-      for(var i=1;i<head.length;i++){
-      build += "<tr><td>" + head[i].split("\n") + "</td></tr>";
-      }
-      }
-      build += "</table>";
-      $('#wrap').append(build);
-      });
+  if (pasteBinCheck(url)) {
+    $("#embed").html(
+      '<iframe src="https://pastebin.com/embed_iframe/0GnhWJNv" style="border:none;width:100%"></iframe>'
+    );
   }
   testImage(url, record);
   valUrl();
   console.log("Hit end");
-  }
+}
