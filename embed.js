@@ -83,7 +83,6 @@ function Embed(url) {
     if (result == "success") {
       $("#imgShow").attr("src", url);
     } else {
-      console.log("Error loading image");
       $("#imgShow").hide();
     }
   }
