@@ -1,29 +1,27 @@
 function Embed(url) {
+  const el = el;
   function GetVimeoIDbyUrl(url) {
-    var id = false;
+    let id = false;
     $.ajax({
       url: "https://vimeo.com/api/oembed.json?url=" + url,
       async: false,
-      success: function(response) {
+      success: function (response) {
         if (response.video_id) {
           id = response.video_id;
         }
-      }
+      },
     });
     return id;
   } //
 
   function valUrl() {
     if (url != undefined || url != "") {
-      console.log("The URL: " + url);
-
-      var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/i;
-      var match = url.match(regExp);
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/i;
+      const match = url.match(regExp);
       if (match && match[2].length == 11) {
-        console.log("YT");
         // Do anything for being valid
         // if need to change the url to embed url then use below line)
-        $("#embed").html(
+        $(el).html(
           '<iframe id="yt" width="100%" height="500" frameborder="0"> </iframe>'
         );
 
@@ -34,8 +32,7 @@ function Embed(url) {
       } else {
         if (GetVimeoIDbyUrl(url)) {
           id = GetVimeoIDbyUrl(url);
-          console.log("A Vimeo! " + id);
-          $("#embed").html(
+          $(el).html(
             '<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
           );
           $("#vimeoPlayer").attr(
@@ -58,23 +55,23 @@ function Embed(url) {
   }
   function testImage(url, callback, timeout) {
     timeout = timeout || 5000;
-    var timedOut = false,
+    let timedOut = false,
       timer;
-    var img = new Image();
-    img.onerror = img.onabort = function() {
+    const img = new Image();
+    img.onerror = img.onabort = function () {
       if (!timedOut) {
         clearTimeout(timer);
         callback(url, "error");
       }
     };
-    img.onload = function() {
+    img.onload = function () {
       if (!timedOut) {
         clearTimeout(timer);
         callback(url, "success");
       }
     };
     img.src = url;
-    timer = setTimeout(function() {
+    timer = setTimeout(function () {
       timedOut = true;
       callback(url, "timeout");
     }, timeout);
@@ -96,9 +93,6 @@ function Embed(url) {
       null
     );
   }
-  function pasteBinCheck(url) {
-    
-  }
   function textCheck(url) {
     return url.match(/\.(txt)$/i) != null;
   }
@@ -107,15 +101,17 @@ function Embed(url) {
   }
   if (videoCheck(url)) {
     console.log("A video");
-    $("#embed").html(
-      '<video id="player" width="100%" playsinline controls><source src="'+url+'" id="videoSource"/></video>'
+    $(el).html(
+      '<video id="player" width="100%" playsinline controls><source src="' +
+        url +
+        '" id="videoSource"/></video>'
     );
   } else {
     $("#player").hide();
   }
   if (documentCheck(url)) {
     console.log("A document");
-    $("#embed").html(
+    $(el).html(
       "<iframe id='documentEmbed' src='' width='100%' height='623px' frameborder='0'>"
     );
     $("#documentEmbed").attr(
@@ -126,13 +122,13 @@ function Embed(url) {
     $("#documentEmbed").hide();
   }
   if (musicCheck(url)) {
-    $("#embed").html('<audio controls><source src="' + url + '"></audio> ');
+    $(el).html('<audio controls><source src="' + url + '"></audio> ');
   }
   if (textCheck(url)) {
-    $("#embed").load(url);
+    $(el).load(url);
   }
   if (pasteBinCheck(url)) {
-    $("#embed").html(
+    $(el).html(
       '<iframe src="https://pastebin.com/embed_iframe/0GnhWJNv" style="border:none;width:100%"></iframe>'
     );
   }
