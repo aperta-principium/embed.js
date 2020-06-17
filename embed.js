@@ -1,5 +1,4 @@
-function Embed(url) {
-  const el = el;
+function Embed(url, el = "#embed") {
   function GetVimeoIDbyUrl(url) {
     let id = false;
     $.ajax({
@@ -126,11 +125,6 @@ function Embed(url) {
   }
   if (textCheck(url)) {
     $(el).load(url);
-  }
-  if (pasteBinCheck(url)) {
-    $(el).html(
-      '<iframe src="https://pastebin.com/embed_iframe/0GnhWJNv" style="border:none;width:100%"></iframe>'
-    );
   }
   testImage(url, record);
   valUrl();
