@@ -115,7 +115,7 @@ function Embed(url, el = "#embed") {
     );
     $("#documentEmbed").attr(
       "src",
-      "https://drive.google.com/viewerng/viewer?embedded=true&url=" + url
+      `https://drive.google.com/viewerng/viewer?embedded=true&url=${url}`
     );
   } else {
     $("#documentEmbed").hide();
