@@ -128,5 +128,4 @@ function Embed(url, el = "#embed") {
   }
   testImage(url, record);
   valUrl();
-  console.log("Hit end");
 }
