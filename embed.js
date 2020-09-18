@@ -101,9 +101,7 @@ function Embed(url, el = "#embed") {
   if (videoCheck(url)) {
     console.log("A video");
     $(el).html(
-      '<video id="player" width="100%" playsinline controls><source src="' +
-        url +
-        '" id="videoSource"/></video>'
+      `<video id="player" width="100%" playsinline controls><source src="${url}" id="videoSource"/></video>`
     );
   } else {
     $("#player").hide();
