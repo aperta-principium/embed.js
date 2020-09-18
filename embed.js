@@ -4,7 +4,7 @@ function Embed(url, el = "#embed") {
     $.ajax({
       url: `https://vimeo.com/api/oembed.json?url=${url}`,
       async: false,
-      success: function (response) {
+      success: (response) => {
         if (response.video_id) {
           id = response.video_id;
         }
@@ -55,7 +55,7 @@ function Embed(url, el = "#embed") {
     let timedOut = false,
       timer;
     const img = new Image();
-    img.onerror = img.onabort = function () {
+    img.onerror = img.onabort = () => {
       if (!timedOut) {
         clearTimeout(timer);
         callback(url, "error");
@@ -68,10 +68,10 @@ function Embed(url, el = "#embed") {
       }
     };
     img.src = `https://external.iclip.trnck.dev/image?url=${url}`;
-    timer = setTimeout(function () {
-      timedOut = true;
-      callback(url, "timeout");
-    }, timeout);
+    timer = setTimeout(() => {
+        timedOut = true;
+        callback(url, "timeout");
+      }, timeout);
   }
   function record(url, result) {
     if (result == "success") {
