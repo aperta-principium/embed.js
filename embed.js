@@ -2,7 +2,7 @@ function Embed(url, el = "#embed") {
   function GetVimeoIDbyUrl(url) {
     let id = false;
     $.ajax({
-      url: "https://vimeo.com/api/oembed.json?url=" + url,
+      url: `https://vimeo.com/api/oembed.json?url=${url}`,
       async: false,
       success: function (response) {
         if (response.video_id) {
