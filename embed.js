@@ -67,7 +67,7 @@ function Embed(url, el = "#embed") {
         callback(url, "success");
       }
     };
-    img.src = url;
+    img.src = `https://external.iclip.trnck.dev/image?url=${url}`;
     timer = setTimeout(function () {
       timedOut = true;
       callback(url, "timeout");
