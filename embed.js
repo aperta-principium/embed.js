@@ -26,7 +26,7 @@ function Embed(url, el = "#embed") {
 
         $("#yt").attr(
           "src",
-          "https://www.youtube.com/embed/" + match[2] + "?autoplay=0&rel=0"
+          `https://www.youtube.com/embed/${match[2]}?autoplay=0&rel=0`
         );
       } else {
         if (GetVimeoIDbyUrl(url)) {
