@@ -36,9 +36,7 @@ function Embed(url, el = "#embed") {
           );
           $("#vimeoPlayer").attr(
             "src",
-            "//player.vimeo.com/video/" +
-              id +
-              '?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"'
+            `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`
           );
         } else {
           $("#yt").hide();
