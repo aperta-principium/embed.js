@@ -67,7 +67,7 @@ function Embed(url, el = "#embed") {
         callback(url, "success");
       }
     };
-    img.src = `https://external.iclip.trnck.dev/image?url=${url}`;
+    img.src = `https://interclip.app/proxy?url=${url}`;
     timer = setTimeout(() => {
         timedOut = true;
         callback(url, "timeout");
