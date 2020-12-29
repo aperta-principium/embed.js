@@ -46,7 +46,6 @@ function Embed(url, el = "#embed") {
     } else {
       $("#player").hide();
       $("#imgShow").hide();
-      console.log("The url wasn't set");
       // Do anything for not being valid
     }
   }
@@ -97,7 +96,6 @@ function Embed(url, el = "#embed") {
     return url.match(/\.(mp3|waw|ogg)$/i) != null;
   }
   if (videoCheck(url)) {
-    console.log("A video");
     $(el).html(
       `<video id="player" width="100%" playsinline controls><source src="${url}" id="videoSource"/></video>`
     );
@@ -105,7 +103,6 @@ function Embed(url, el = "#embed") {
     $("#player").hide();
   }
   if (documentCheck(url)) {
-    console.log("A document");
     $(el).html(
       "<iframe id='documentEmbed' src='' width='100%' height='623px' frameborder='0'>"
     );
