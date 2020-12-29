@@ -114,7 +114,7 @@ function Embed(url, el = "#embed") {
     $("#documentEmbed").hide();
   }
   if (musicCheck(url)) {
-    $(el).html('<audio controls><source src="' + url + '"></audio> ');
+    $(el).html(`<audio controls><source src="${url}"></audio> `);
   }
   if (textCheck(url)) {
     $(el).load(url);
