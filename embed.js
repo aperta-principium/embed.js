@@ -74,7 +74,7 @@ function embed(url, el = "#embed") {
   }
   function record(url, result) {
     if (result == "success") {
-      $("#imgShow").attr("src", url);
+      $("#imgShow").attr("src", `https://interclip.app/proxy?url=${url}`);
     } else {
       $("#imgShow").hide();
     }
