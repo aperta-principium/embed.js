@@ -1,4 +1,4 @@
-# Embed
+# embed.js
 Embed just about anything... in the browser
 
 [Demo](https://embed.filiptronicek.now.sh/)
@@ -18,7 +18,7 @@ and set the link
 ```html
 <script type="module"> 
 
-import { embed } from "https://cdn.jsdelivr.net/gh/aperta-principium/Embed/embed.min.js";
+import { embed } from "https://cdn.jsdelivr.net/gh/aperta-principium/embed.js/embed.min.js";
 
 embed("https://github.com/filiptronicek.png");
 </script>
