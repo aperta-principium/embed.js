@@ -60,7 +60,7 @@ function embed(url, el = "#embed") {
         callback(url, "error");
       }
     };
-    img.onload = function () {
+    img.onload = () => {
       if (!timedOut) {
         clearTimeout(timer);
         callback(url, "success");
