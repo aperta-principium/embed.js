@@ -1,4 +1,4 @@
-function Embed(url, el = "#embed") {
+function embed(url, el = "#embed") {
   function GetVimeoIDbyUrl(url) {
     let id = false;
     $.ajax({
