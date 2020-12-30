@@ -8,7 +8,6 @@ Embed just about anything... in the browser
 First include the scripts
 ```html
 <script src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js"> </script>
-<script src="https://cdn.jsdelivr.net/gh/filiptronicek/Embed/embed.min.js"> </script>
 ```
 
 Then just create a div
@@ -17,8 +16,11 @@ Then just create a div
 ```
 and set the link
 ```html
-<script> 
-Embed("https://github.com/filiptronicek.png");
+<script type="module"> 
+
+import { embed } from "https://cdn.jsdelivr.net/gh/aperta-principium/Embed/embed.min.js";
+
+embed("https://github.com/filiptronicek.png");
 </script>
 ```
 And you're done!
