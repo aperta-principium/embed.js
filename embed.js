@@ -15,17 +15,15 @@ export function embed(url, el = "#embed") {
   }
 
   if (videoCheck(url)) {
-    $(el).html(
-      `<video id="player" width="100%" playsinline controls><source src="${url}" id="videoSource"/></video>`
-    );
+    document.querySelector(el).innerHTML = 
+      `<video id="player" width="100%" playsinline controls><source src="${url}" id="videoSource"/></video>`;
   } else {
     $("#player").hide();
   }
 
   if (documentCheck(url)) {
-    $(el).html(
-      "<iframe id='documentEmbed' width='100%' height='623px' frameborder='0'>"
-    );
+    document.querySelector(el).innerHTML = 
+      "<iframe id='documentEmbed' width='100%' height='623px' frameborder='0'>";
     $("#documentEmbed").attr(
       "src",
       `https://drive.google.com/viewerng/viewer?embedded=true&url=${url}`
@@ -35,10 +33,10 @@ export function embed(url, el = "#embed") {
   }
 
   if (musicCheck(url)) {
-    $(el).html(`<audio controls><source src="${url}"></audio> `);
+    document.querySelector(el).innerHTML = `<audio controls><source src="${url}"></audio> `;
   }
   if (textCheck(url)) {
-    $(el).load(url);
+    document.querySelector(el).load(url);
   }
 
   testImage(url, record);
