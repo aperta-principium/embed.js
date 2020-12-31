@@ -16,7 +16,7 @@ export function embed(url, el = "#embed") {
 
     function record(url, result) {
         if (result == "success") {
-            document.querySelector("#imgShow").attr("src", `https://interclip.app/proxy?url=${url}`);
+            document.querySelector("#imgShow").setAttribute("src", `https://interclip.app/proxy?url=${url}`);
         } else {
             hide("#imgShow");
         }
@@ -30,7 +30,7 @@ export function embed(url, el = "#embed") {
 
     if (documentCheck(url)) {
         document.querySelector(el).innerHTML = "<iframe id='documentEmbed' width='100%' height='623px' frameborder='0'>";
-        document.querySelector("#documentEmbed").attr("src", `https://drive.google.com/viewerng/viewer?embedded=true&url=${url}`);
+        document.querySelector("#documentEmbed").setAttribute("src", `https://drive.google.com/viewerng/viewer?embedded=true&url=${url}`);
     } else {
         hide("#documentEmbed");
     }
