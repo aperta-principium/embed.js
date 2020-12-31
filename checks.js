@@ -53,24 +53,24 @@ export function vimYTvalidate(url, el) {
         if (match && match[2].length == 11) {
             // Do anything for being valid
             // if need to change the url to embed url then use below line)
-            $(el).html('<iframe id="yt" width="100%" height="500" frameborder="0"> </iframe>');
+            document.querySelector(el).html('<iframe id="yt" width="100%" height="500" frameborder="0"> </iframe>');
 
-            $("#yt").attr("src", `https://www.youtube.com/embed/${
+            document.querySelector("#yt").attr("src", `https://www.youtube.com/embed/${
                 match[2]
             }?autoplay=0&rel=0`);
         } else {
             if (GetVimeoIDbyUrl(url)) {
                 id = GetVimeoIDbyUrl(url);
-                $(el).html('<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-                $("#vimeoPlayer").attr("src", `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`);
+                document.querySelector(el).html('<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+                document.querySelector("#vimeoPlayer").attr("src", `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`);
             } else {
-                $("#yt").hide();
+                document.querySelector("#yt").hide();
             }
             // Do anything for not being valid
         }
     } else {
-        $("#player").hide();
-        $("#imgShow").hide();
+        document.querySelector("#player").hide();
+        document.querySelector("#imgShow").hide();
         // Do anything for not being valid
     }
 }
