@@ -24,7 +24,7 @@ export function embed(url, el = "#embed") {
 
   if (documentCheck(url)) {
     $(el).html(
-      "<iframe id='documentEmbed' src='' width='100%' height='623px' frameborder='0'>"
+      "<iframe id='documentEmbed' width='100%' height='623px' frameborder='0'>"
     );
     $("#documentEmbed").attr(
       "src",
