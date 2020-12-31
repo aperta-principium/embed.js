@@ -63,8 +63,6 @@ export function vimYTvalidate(url, el) {
                 const id = GetVimeoIDbyUrl(url);
                 document.querySelector(el).innerHTML = ('<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
                 document.querySelector("#vimeoPlayer").setAttribute("src", `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`);
-            } else {
-                document.querySelector("#yt").hide();
             }
             // Do anything for not being valid
         }
@@ -79,7 +77,7 @@ export function vimYTvalidate(url, el) {
    * @param  {} url
    */
 
-  export function GetVimeoIDbyUrl(url) {
+export function GetVimeoIDbyUrl(url) {
     let id = false;
     $.ajax({
         url: `https://vimeo.com/api/oembed.json?url=${url}`,
