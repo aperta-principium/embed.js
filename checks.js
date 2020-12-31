@@ -60,9 +60,9 @@ export function vimYTvalidate(url, el) {
             }?autoplay=0&rel=0`);
         } else {
             if (GetVimeoIDbyUrl(url)) {
-                id = GetVimeoIDbyUrl(url);
-                document.querySelector(el).html('<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-                document.querySelector("#vimeoPlayer").attr("src", `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`);
+                const id = GetVimeoIDbyUrl(url);
+                document.querySelector(el).innerHTML = ('<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+                document.querySelector("#vimeoPlayer").setAttribute("src", `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`);
             } else {
                 document.querySelector("#yt").hide();
             }
