@@ -43,5 +43,5 @@ export function embed(url, el = "#embed") {
     }
 
     testImage(url, record);
-    vimYTvalidate(url);
+    vimYTvalidate(url, el);
 }

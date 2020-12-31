@@ -46,7 +46,7 @@ export function testImage(url, callback, timeout) {
 
 /* Vimeo and YouTube */
 
-export function vimYTvalidate(url) {
+export function vimYTvalidate(url, el) {
     if (url != undefined || url != "") {
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/i;
         const match = url.match(regExp);
