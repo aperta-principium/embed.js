@@ -46,31 +46,29 @@ export function testImage(url, callback, timeout) {
 
 /* Vimeo and YouTube */
 
-export function vimYTvalidate(url) {
+export function vimYTvalidate(url, el) {
     if (url != undefined || url != "") {
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/i;
         const match = url.match(regExp);
         if (match && match[2].length == 11) {
             // Do anything for being valid
             // if need to change the url to embed url then use below line)
-            $(el).html('<iframe id="yt" width="100%" height="500" frameborder="0"> </iframe>');
+            document.querySelector(el).html('<iframe id="yt" width="100%" height="500" frameborder="0"> </iframe>');
 
-            $("#yt").attr("src", `https://www.youtube.com/embed/${
+            document.querySelector("#yt").attr("src", `https://www.youtube.com/embed/${
                 match[2]
             }?autoplay=0&rel=0`);
         } else {
             if (GetVimeoIDbyUrl(url)) {
-                id = GetVimeoIDbyUrl(url);
-                $(el).html('<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-                $("#vimeoPlayer").attr("src", `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`);
-            } else {
-                $("#yt").hide();
+                const id = GetVimeoIDbyUrl(url);
+                document.querySelector(el).innerHTML = ('<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+                document.querySelector("#vimeoPlayer").setAttribute("src", `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`);
             }
             // Do anything for not being valid
         }
     } else {
-        $("#player").hide();
-        $("#imgShow").hide();
+        document.querySelector("#player").hide();
+        document.querySelector("#imgShow").hide();
         // Do anything for not being valid
     }
 }
@@ -79,7 +77,7 @@ export function vimYTvalidate(url) {
    * @param  {} url
    */
 
-  export function GetVimeoIDbyUrl(url) {
+export function GetVimeoIDbyUrl(url) {
     let id = false;
     $.ajax({
         url: `https://vimeo.com/api/oembed.json?url=${url}`,
