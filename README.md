@@ -25,7 +25,7 @@ embed("https://github.com/filiptronicek.png");
 And you're done!
 
 
-## To-dos:
+## To-dos
 * SoundCloud embed
 * PasteBin Embed
 * Streamable embed
