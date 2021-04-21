@@ -48,8 +48,8 @@ export function testImage(url, callback, timeout) {
 
 export function vimYTvalidate(url, el) {
     if (url != undefined || url != "") {
-        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/i;
-        const match = url.match(regExp);
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/i; // Set the YouTube video URL Regex
+        const match = url.match(regExp); // Boolean that expresses whether the URL is a YT URL
         if (match && match[2].length == 11) {
             // Do anything for being valid
             // if need to change the url to embed url then use below line)
