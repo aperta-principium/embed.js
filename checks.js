@@ -32,7 +32,7 @@ export function testImage(url, callback, timeout) {
         }
     };
     img.onload = () => {
-        if (!timedOut) {
+        if (! timedOut) {
             clearTimeout(timer);
             callback(url, "success");
         }
@@ -59,34 +59,24 @@ export function vimYTvalidate(url, el) {
                 match[2]
             }?autoplay=0&rel=0`);
         } else {
-            if (GetVimeoIDbyUrl(url)) {
-                const id = GetVimeoIDbyUrl(url);
-                document.querySelector(el).innerHTML = ('<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
-                document.querySelector("#vimeoPlayer").setAttribute("src", `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`);
-            }
-            // Do anything for not being valid
+            fetch(`https://vimeo.com/api/oembed.json?url=${url}`).then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    return null;
+                }
+            }).then(res => {
+                if (res) {
+                    const id = res.video_id;
+
+                    document.querySelector(el).innerHTML = ('<iframe id="vimeoPlayer" src="" width="100%" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>');
+                    document.querySelector("#vimeoPlayer").setAttribute("src", `//player.vimeo.com/video/${id}?title=0&amp;byline=0&amp;portrait=0&amp;color=ffff00"`);
+                }
+            });
         }
     } else {
         document.querySelector("#player").hide();
         document.querySelector("#imgShow").hide();
         // Do anything for not being valid
     }
-}
-/**
-   * Used to get video id from Vimeo URL
-   * @param  {} url
-   */
-
-export function GetVimeoIDbyUrl(url) {
-    let id = false;
-    $.ajax({
-        url: `https://vimeo.com/api/oembed.json?url=${url}`,
-        async: false,
-        success: (response) => {
-            if (response.video_id) {
-                id = response.video_id;
-            }
-        }
-    });
-    return id;
 }
