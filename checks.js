@@ -32,7 +32,7 @@ export function testImage(url, callback, timeout) {
         }
     };
     img.onload = () => {
-        if (! timedOut) {
+        if (!timedOut) {
             clearTimeout(timer);
             callback(url, "success");
         }
