@@ -14,7 +14,6 @@ export function musicCheck(url) {
     return url.match(/\.(mp3|waw|ogg)$/i) != null;
 }
 
-
 /**
    * @param  {} url
    * @param  {} callback
@@ -76,7 +75,5 @@ export function vimYTvalidate(url, el) {
         }
     } else {
         document.querySelector("#player").hide();
-        document.querySelector("#imgShow").hide();
-        // Do anything for not being valid
     }
 }
