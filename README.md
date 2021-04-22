@@ -1,14 +1,37 @@
 # embed.js
 Embed just about anything... in the browser
 
+## Supported embeds
+- YouTube Videos
+- Vimeo videos
+### Supported file extensions
+- `.jpg`
+- `.jpeg`
+- `.png`
+- `.webp`
+- `.mp3`
+- `.wav`
+- `.ogg`
+- `.txt`
+- `.mp4`
+- `.mkv`
+- `.doc`
+- `.docx`
+- `.xls`
+- `.xlsx`
+- `.ppt`
+- `.pptx`
+- `.pdf`
+- `.pages`
+- `.eps`
+- `.ps`
+- `.ttf`
+- `.xps`
+
+
 [Demo](https://embed.filiptronicek.now.sh/)
 
 ## Setup
-
-First include the scripts
-```html
-<script src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js"> </script>
-```
 
 Then just create a div
 ```html
